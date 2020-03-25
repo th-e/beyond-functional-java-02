@@ -2,7 +2,7 @@ FROM gitpod/workspace-full
 
 USER root
 
-USER gitpod
+#USER gitpod
 ARG SBT_VERSION=1.3.8
 # Install sbt
 RUN \
