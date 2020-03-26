@@ -1,21 +1,20 @@
-organization := "de.webtuples"
-name := "nel"
-version := "1.0"
+organization in ThisBuild := "com.thoughtworks.example"
 
-scalaVersion := "2.13.1"
-// For Settings/Task reference, see http://www.scala-sbt.org/release/sxr/sbt/Keys.scala.html
+sbtPlugin := true
 
-lazy val scalaTestVersion = "3.2.0-M2"
+name := "sbt-example"
 
-libraryDependencies ++= Seq(
-  "org.typelevel" %% "cats-core" % "2.1.1",
-  "org.scalatest" %% "scalatest-freespec" % scalaTestVersion % "test",
-  "org.scalatest" %% "scalatest-mustmatchers" % scalaTestVersion % "test",
-  "org.scalacheck" %% "scalacheck" % "1.14.2" % "test"
-)
+libraryDependencies += "org.scalameta" %% "contrib" % "1.7.0"
 
-testOptions in Test += Tests.Argument(
-  TestFrameworks.ScalaCheck, "-maxSize", "5", "-minSuccessfulTests", "33",
-  "-workers", s"${java.lang.Runtime.getRuntime.availableProcessors - 1}" ,
-  "-verbosity", "1"
-)
+libraryDependencies += "org.scala-lang.modules" %% "scala-xml" % "1.2.0"
+
+libraryDependencies += scalaOrganization.value % "scala-reflect" % scalaVersion.value % Provided
+
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.0" % Provided // For Scaladoc links
+
+scalacOptions ++= Seq("-Ypatmat-exhaust-depth", "off")
+
+enablePlugins(Example)
+
+import scala.meta._
+examplePackageRef := q"com.thoughtworks"

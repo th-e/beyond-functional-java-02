@@ -1,8 +1,5 @@
-image: openjdk:8
+image: igeolise/scalajs-test-runner:latest
 vscode:
   extensions:
-    - scalameta.metals@1.8.4:cZIFbsTEtuY8//0qEG+XLw==
-    - scala-lang.scala@0.3.9:kklqw+c/dNRmtTU8B5repw==
-tasks:
-- init: source ./gitpod_init.sh
-- command: source ./gitpod_command.sh
+    - scala-lang.scala@0.3.8:wQBBM+lKILHBqOqlqW60xA==
+    - scalameta.metals@1.6.3:pVVu91DEAijx+sPKu8fgHA==
